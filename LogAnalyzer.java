@@ -20,9 +20,16 @@ public class LogAnalyzer
     { 
         // Create the array object to hold the hourly
         // access counts.
-        hourCounts = new int[HOURS_PER_DAY];
+        hourCounts = new int[HOURS_PER_DAY];            // {0,0,0,0,0,0,0}
         // Create the reader to obtain the data.
-        reader = new LogfileReader();
+        reader = new LogfileReader();                   //  read the weblog.txt
+
+    }
+    //Question 5
+    public LogAnalyzer(String fileName) {
+        hourCounts = new int[HOURS_PER_DAY];            // {0,0,0,0,0,0,0}
+        // Create the reader to obtain the data.
+        reader = new LogfileReader(fileName);                   //  read the weblog.txt
     }
 
     /**
@@ -43,13 +50,18 @@ public class LogAnalyzer
      * call to analyzeHourlyData.
      */
     public void printHourlyCounts()
-    {
-        System.out.println("Hr: Count");
-        for(int hour = 0; hour < hourCounts.length; hour++) {
-            System.out.println(hour + ": " + hourCounts[hour]);
+    { //Question 4
+        int hour = 0;
+        while(hour < hourCounts.length){
+            System.out.println(hour + ":" + hourCounts[hour]);
+            hour++;
         }
+
+        // System.out.println("Hr: Count");
+        // for(int hour = 0; hour < hourCounts.length; hour++) {
+        // System.out.println(hour + ": " + hourCounts[hour]);
     }
-    
+
     /**
      * Print the lines of data read by the LogfileReader
      */
@@ -57,4 +69,14 @@ public class LogAnalyzer
     {
         reader.printData();
     }
+    //Question 6/7
+    public int numberOfAccesses() {
+        int total = 0;
+        for(; total <= hourCounts.length; total++){
+
+        }
+        // Add the value in each element of hourCounts to total. ...
+        return total;
+    } 
+
 }
