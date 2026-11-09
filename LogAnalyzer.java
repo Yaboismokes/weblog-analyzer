@@ -72,11 +72,45 @@ public class LogAnalyzer
     //Question 6/7
     public int numberOfAccesses() {
         int total = 0;
-        for(; total <= hourCounts.length; total++){
-
+        for(int hour = 0; hour <= hourCounts.length; hour++){
+            total = total + hourCounts[hour];
         }
         // Add the value in each element of hourCounts to total. ...
         return total;
     } 
+    //Question 8
+    public int busiestHour() {
+        int busiestHour = 0;
+        for(int hour : hourCounts) {
+            if(hour > busiestHour) {
+                busiestHour = hour;
+            }
+        }
+        return busiestHour;
 
+    }
+    //Question 9
+    public int quickestHour() {
+        int quick = 0;
+        for(int hour = 1; hour < hourCounts.length; hour++) {
+            if(hourCounts[hour] < hourCounts[quick]) {
+                quick = hour;
+            }
+        }
+        return quick;
+
+    }
+    //Question 11
+    public int busiestTwoHour() {
+        int busiest = 0;
+        int max = hourCounts[0] + hourCounts[1];
+        for(int hour = 1; hour < hourCounts.length - 1; hour++) {
+            int total = hourCounts[hour] + hourCounts[hour + 1];
+            if(total > max) {
+                max = total;
+                busiest = hour;
+            }
+        }
+        return busiest;
+    }
 }
